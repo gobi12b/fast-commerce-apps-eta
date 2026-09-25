@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ETA Widget</string>
+    <string name="widget_description">Fastest delivery ETA across Instamart, Zepto, Blinkit and BBNow</string>
+    <string name="accessibility_label">ETA Widget screen reader</string>
+    <string name="accessibility_description">Reads the delivery time shown in Swiggy Instamart, Zepto, Blinkit and BBNow while those apps are open, including when this app opens them for a check. Only the number of minutes is saved; no other screen content is stored or sent anywhere.</string>
+</resources>

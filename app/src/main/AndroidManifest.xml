@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Android 11+ package visibility: lets AppLaunchResolver find which delivery
+         apps are installed, and the sweep find the launcher (to stop if the user
+         goes Home). Keep in sync with ServiceAppInfoRegistry. -->
+    <queries>
+        <package android:name="in.swiggy.android.instamart" />
+        <package android:name="in.swiggy.android" />
+        <package android:name="com.zeptoconsumerapp" />
+        <package android:name="com.grofers.customerapp" />
+        <package android:name="com.bigbasket.mobileapp" />
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.HOME" />
+        </intent>
+    </queries>
+
+    <application
+        android:name=".EtaWidgetApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.EtaWidget">
+
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:exported="true"
+            android:theme="@style/Theme.EtaWidget">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".widget.EtaGlanceWidgetReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/eta_widget_info" />
+        </receiver>
+
+        <service
+            android:name=".screenread.EtaAccessibilityService"
+            android:exported="false"
+            android:label="@string/accessibility_label"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/eta_accessibility_service" />
+        </service>
+
+    </application>
+
+</manifest>
